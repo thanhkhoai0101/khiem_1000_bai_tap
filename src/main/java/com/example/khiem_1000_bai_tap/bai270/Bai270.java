@@ -1,0 +1,41 @@
+package com.example.khiem_1000_bai_tap.bai270;
+
+import java.util.Scanner;
+
+public class Bai270 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nhap SL Mang N");
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        nhaPManG(arr, n);
+        xuaTManG(arr, n);
+
+
+    }
+
+    public static void nhaPManG(int[] arr, int n) {
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 0; i < n; i++) {
+            System.out.println("Nhap Phan tu thu " + i);
+            arr[i] = scanner.nextInt();
+        }
+        int a;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] > arr[j]) {
+                    a = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = a;
+                }
+            }
+        }
+    }
+
+    public static void xuaTManG(int[] arr, int n) {
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+}
