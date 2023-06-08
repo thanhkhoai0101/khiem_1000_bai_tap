@@ -1,17 +1,17 @@
-package com.example.khiem_1000_bai_tap.bai292;
+package com.example.khiem_1000_bai_tap.bai299;
 
 import java.util.Scanner;
 
-public class Bai292 {
+public class Bai299 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhap SL mang N");
         int n = scanner.nextInt();
         float[] arr = new float[n];
         nhapMang(arr, n);
-        xuaTMang(arr, n);
-        int[] arr1 = new int[n];
-        nguyenHoa(arr, arr1, n);
+        xuatMang(arr, n);
+        conDuong(arr, n);
+
 
     }
 
@@ -23,25 +23,32 @@ public class Bai292 {
         }
     }
 
-    public static void xuaTMang(float[] arr, int n) {
+    public static void xuatMang(float[] arr, int n) {
         for (int i = 0; i < n; i++) {
             System.out.print(arr[i] + " ");
         }
         System.out.println();
     }
 
-    public static void nguyenHoa(float[] arr, int[] arr1, int n) {
-
-        for (int i = 0; i < n; i++) {
-            arr1[i] = (int) Math.floor(arr[i]);
-            if (arr[i] - arr1[i] >= 0.5) {
-                arr1[i] += 1;
+    public static boolean checkDuong(float[] arr, int a, int b) {
+        for (int i = a; i <= b; i++) {
+            if (arr[i] <= 0) {
+                return false;
             }
         }
-        System.out.println("Mang sau khi lam tron ");
-        for (int i = 0; i < n; i++) {
-            System.out.print(arr1[i] + " ");
-        }
+        return true;
     }
 
+    public static void conDuong(float[] arr, int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (checkDuong(arr, i, j)) {
+                    for (int k = i; k <= j; k++) {
+                        System.out.print(arr[k] + " ");
+                    }
+                    System.out.println();
+                }
+            }
+        }
+    }
 }
