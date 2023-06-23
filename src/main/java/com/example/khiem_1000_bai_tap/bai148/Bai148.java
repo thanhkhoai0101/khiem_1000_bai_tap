@@ -1,6 +1,6 @@
 package com.example.khiem_1000_bai_tap.bai148;
 
-import java.awt.*;
+
 import java.util.Scanner;
 
 public class Bai148 {
